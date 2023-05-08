@@ -2,7 +2,8 @@ const { Configuration, OpenAIApi } = require("openai");
 const path = require("path");
 const express = require("express");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3001;
+
 require("dotenv").config();
 
 const configuration = new Configuration({
@@ -52,6 +53,6 @@ app.get("/", async (req, res) => {
 	res.render("index");
 });
 
-app.listen(port, () => {
-	console.log(`The application is listening on port ${port}`);
+app.listen(PORT, () => {
+	console.log(`The application is listening on port ${PORT}`);
 });
